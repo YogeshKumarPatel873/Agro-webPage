@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emerging AI Nerds</title>
+    <script src="https://kit.fontawesome.com/e1c0f54580.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-image: url("https://live.staticflickr.com/4916/45222039765_2b45e04f14_n.jpg" );
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        position: sticky;
+        top: 0px;
+    }
+
+    .navbar::before {
+        content: "";
+        background-color: rgb(16,16,16);
+        
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+
+    .navbar img {
+        width: 90px;
+        height: 60px;
+        border-radius: 29px;
+        position: relative;
+        cursor: context-menu;
+    }
+
+    .logo {
+        margin: 5px 5px;
+    }
+
+    h4{
+            text-shadow:0px 25px 40px rgba(0, 0, 0, 0.8 );
+            background: -webkit-linear-gradient(rgb(13, 248, 5),rgb(3,12,242));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        
+    }
+
+    .header {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+    .header li {
+        list-style: none;
+        font-size: 1.5rem;
+    }
+
+    .header li a {
+        color: rgb(9, 93, 9);
+        display: block;
+        /* padding: 5px 40px; */
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 15px;
+        text-decoration: none;
+    }
+
+    .header li a:hover {
+        color: rgb(53, 248, 53);
+        background-color: rgb(141, 139, 139);
+    }
+    .active{
+        color: rgb(53, 248, 53);
+        background-color: rgb(141, 139, 139);
+    }
+    #dropdown{
+            display: none;
+        }
+        #dropdown li a{
+            
+            font-size: 18px;
+            
+            margin: 5px;
+            background-color: rgb(129, 134, 129);
+            
+        }
+        .navbar li:hover #dropdown{
+        display: block;
+        position: absolute;
+    }
+    .navbar li:hover #dropdown ul{
+        display: block;
+        margin: 5px;
+    }
+
+    /* Section     */
+
+    
+
+    section::before{
+        content: "";
+        
+        background-attachment: fixed;
+        background-position: center;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        /* opacity: 0.7; */
+    }
+
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+
+    }
+    .btn{
+            display: inline-block;
+            border-radius: 20px;
+            margin: -1px 3px;
+            padding: 5px 0px;
+            color: whitesmoke;
+            background-color: gray;
+            cursor: context-menu;
+        }
+        .btn:hover{
+            transform:scale(1.2)
+        }
+
+    #box{
+        margin-top: 60px;
+    }
+    .imgbox{
+        margin-left: 50px;
+    }
+    .imgbox img{
+        display: block;
+        border-radius: 8px;
+        height: 200px;
+        width: 300px;
+        box-shadow: 0px 25px 40px rgba(0, 0, 0, 0.5);
+        transition: 0.7s;
+    }
+    .imgbox1{
+        display: block;
+        word-wrap: wrap;
+        width: 300px;
+        color: white;
+        font-size: 18px;
+    }
+    .imgbox2{
+        display: block;
+        word-wrap: wrap;
+        width: 300px;
+        color: white;
+        font-size: 18px;
+    }
+    .imgbox3{
+        display: block;
+        word-wrap: wrap;
+        width: 300px;
+        color: white;
+        font-size: 18px;
+    }
+    
+    .container #box img:hover{
+        z-index: 1;
+        transform: scale(1.15);
+        box-shadow: 0px 25px 40px rgba(0, 0, 0, 0.8 );
+        opacity: 0.5;
+    }
+    .imgbox h2{
+        color: rgb(0, 0, 0);
+        text-shadow:0px 25px 40px rgba(0, 0, 0, 0.8 );
+        cursor: context-menu;
+    }
+    
+    .footer{
+        display:flex;
+        background-color: black;
+        color: rgb(9, 93, 9);
+        font-size:10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 3.2rem;
+    }
+    h2{
+        margin-left:10px;
+        margin-top:10px;
+    }
+    footer ul{
+        display:flex;
+        align-items: end;
+    }
+    @media screen and (min-width:800px) {
+        footer ul {
+            margin-left:250px
+        }
+        .imgbox{
+            margin-left: 0px;
+        }
+    }
+    .icons ul li{
+        align-items: center;
+        color: whitesmoke;
+        justify-content: center;
+        margin-left:30px;
+        display: block;
+        border-radius: 50%;
+        font-size: 18px;
+        bottom: 0;
+        width: 100%;
+        height: 3.5rem;
+    }
+    .icons ul li a{
+        text-decoration: none;
+        color: whitesmoke;
+    }
+    .icons ul li:hover{
+        color: whitesmoke;
+        background-color:black;
+        transform:scale(1.3)
+    }
+    
+    
+</style>
+
+<body>
+    
+    <nav class="navbar">
+        <!-- for logo -->
+
+        <div class="logo">
+            <img src={{url_for('static',filename='Logo.jpg')}} alt="Cannot found">
+            <h4 align="center">Emerging AI Nerds</h4>
+        </div>
+
+        <!-- for nav bar -->
+
+        <ul class="header">
+            <li class="item"><a href={{url_for('index')}} class="active">Home</a></li>
+            <li class="item"><a href="#">Our Services</a>
+                <ul id="dropdown">
+                    <li><a href={{url_for('disease')}}>Crop Disease Detection</a></li>
+                    <li><a href={{url_for('soil')}}>Crop Recommendation for Soil</a></li>
+                    <li><a href={{url_for('fertilizer')}}>Fertilizer Recommendation</a></li>
+                </ul>
+            </li>
+            <li class="item"><a href="#">Future Inhancements</a>
+                <ul id="dropdown">
+                    <li><a href="#">Crop Health Monitoring</a></li>
+                    <li><a href="#">Rainfall Prediction</a></li>
+                    <li><a href="#">Crop Price Prediction</a></li>
+                    <li><a href="#">Pesticides Recommendation</a></li>
+                </ul>
+            </li>
+            <li class="item"><a href={{url_for('about')}}>About Us</a></li>
+            <li class="item"><a href={{url_for('contact')}}>Contact Us</a></li>
+            <li><button class ="btn" ><a href={{url_for('index_hindi')}}>हिंदी में देखें</a></button></li>
+        </ul>
+        
+    </nav>
+
+    <section>
+        <div class="container"> <!---->
+            <div id="box"> <!--service-->
+                <div class="imgbox"> <!--box-->
+                    <h2 align="center">Crop Disease Detection</h2>
+                    <a href={{url_for('disease')}}> <img
+                            src="https://images.unsplash.com/photo-1528839390497-a161db4bac71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                            alt="No image" srcset=""></a>
+                     <summery class='imgbox1'>Plant diseases are a severe threat to the entire production. Therefore, it is essential for farmers to effectively deal with them and check them with the help of timely prevention,therefore Modern technologies come to the aid of farmers.</summery> 
+                    
+                </div>
+            </div>
+            
+            <div id="box">
+                <div class="imgbox">
+                    <h2 align="center">Crop Recommendation for Soil </h2>
+                    <a href={{url_for('soil')}}> <img
+                            src="https://images.unsplash.com/photo-1523349312806-f5dde0a01c32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                            alt="" srcset=""> </a>
+                    <summery class='imgbox2'>The selection of crops plays a major role in improving the productivity and profitability of the farmers,we present a fully automated model for crop prediction, designed to work where there is a dearth of sub-national "ground truth" information.</summery>
+                </div>
+            </div>
+            <div id="box">
+                <div class="imgbox">
+                    <h2 align="center">Fertilizer Recommendation</h2>
+                    <a href={{url_for('fertilizer')}}><img
+                            src="https://images.unsplash.com/photo-1647708477732-1be57f2d63b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGZhcm0lMjBmZXJ0aWxpemVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                            alt="No image" srcset=""></a>
+                    <summery class='imgbox3'>To grow healthy crops full of nutrients, farmers need to ensure they have healthy soil. Without fertilizers, nature struggles to replenish the nutrients in the soil,so we came with a model which can predict a fertilizer suitable for the given soil composition</summery>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <h2 align='center'>Copyright &#169; Emerging AI Nerds</h2>
+            <div class="icons"><br>
+                <ul align="center">
+                    <li class="fb"><a href="https://www.facebook.com/dancersanu9/" target="_blank"  i class="fa-brands fa-facebook"></i></a></li>
+                    <li class="insta"><a href="https://www.instagram.com/shanu_0.error/?next=%2F" target="_blank"  i class="fa-brands fa-square-instagram"></i></a></li>
+                    <li class="linkdln"><a href="https://www.linkedin.com/in/yogesh-kumar-patel-a8a217218/" target="_blank"  i class="fa-brands fa-linkedin"></i></a></li>
+                    <li class="yt"><a href="https://www.youtube.com/channel/UCFJx_3QZd0EL6r6FrhI_ZXw"  target="_blank" i class="fa-brands fa-youtube"></i></a></li>
+                    <li class="git"><a href="https://github.com/YogeshKumarPatel873" target="_blank"  i class="fa-brands fa-github"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>

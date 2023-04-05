@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact page</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .contact{
+            position: relative;
+            min-width: 100vw;
+            min-height: 100vh;
+            /* padding: 50px 0px; */
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-image: url("https://d3ljlx3hzhder.cloudfront.net/sprink/b2c_assets/images/Group-13461.png"); 
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .contact .content{
+            max-width: 800px;
+            text-align: center;
+        }
+        .contact .content h2{
+            font-size: 36px;
+            font-weight: 500;
+            color: black;
+        }
+        .contact .content p{
+            font-size: larger;
+            font-weight: 300;
+            color: black;
+        }
+        .container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .container .contactinfo{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 180px;
+        }
+        .container .contactinfo .box{
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            margin-top: 18px;
+            /* padding: 20px 300px; */
+            display: flex;
+        }
+        .container .contactinfo .box .icon{
+            min-width: 20px;
+            height: 20px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 22px;
+        }
+        .container .contactinfo .box .text{
+            display: flex;
+            margin-left: 10px;
+            font-size: 16px;
+            color: black;
+            flex-direction: column;
+            font-weight: 300;
+        }
+        .container .contactinfo .box .text h3{
+            font-weight: 500;
+            color: blueviolet;
+        }
+        .container .contactinfo .box .text p{
+            width: 150px;
+        }
+        .contactform{
+            margin-top: 30px;
+            border-radius: 10px;
+            width: 40%;
+            padding: 40px;
+            background: #f7dbdb
+        }
+        .contactform h2{
+            
+            font-size: 30px;
+            color: black;
+            font-weight: 500;
+            align-items: center;
+            justify-content: center;
+        }
+        .contactform .inputbox{
+            position: relative;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .contactform .inputbox input , textarea{
+            width: 100%;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 2px solid #333;
+            outline: none;
+            resize: none;
+        }
+        .contactform .inputbox span{
+            left: 0;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            pointer-events: none;
+            transition: 0.5s;
+            color: #554c4c;
+        }
+        .contactform .inputbox input[type="submit"]
+       {
+            width: 100px;
+            background: #00bcd4;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 18px;
+       } 
+
+       @media (max-width: 991px){
+            .contact{
+                padding: 50px;
+            }
+            .container{
+                flex-direction: column;
+            }
+            .container .contactinfo{
+                margin-bottom: 40px;
+            }
+            .container .contactinfo , .contactform{
+                width: 100%;
+            }
+       }
+    </style>
+</head>
+<body>
+    <section class="contact">
+        <div class="content">
+            <h2><b>Contact Us</b></h2>
+            <p><i><b>We are here to help and answer any question you might have. we are very likely to appreciate your questions.</b></i></p>
+        </div>
+
+        <div class="container">
+            
+            
+            <div class="contactform">
+                <form action="{{url_for('contact')}}" method='post'>
+                    <h2>Send Message</h2>
+                    <div class="inputbox">
+                        <span>Full Name</span>
+                        <input type="text" name="name" required="required">
+                        
+                    </div>
+                    <div class="inputbox">
+                        <span>Email</span>
+                        <input type="email" name="email" required="required">
+                        
+                    </div>
+                    <div class="inputbox">
+                        <span>Type your Message...</span>
+                        <textarea name="message" required="required" id="" cols="50" rows="3"></textarea>
+                        
+                    </div>
+
+                    <div class="inputbox">
+                        <input type="submit" value="Send">
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="contactinfo">
+                <div class="box">
+                    <div class="icon">
+                        <img src={{url_for('static',filename='email.png')}} alt="mail us" height="40px">
+                    </div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>shanuraghuwanshi873@gmail.com</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><img src={{url_for('static',filename='phone.png')}} alt="call us" height="50px"></div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>+91 70002 07480</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

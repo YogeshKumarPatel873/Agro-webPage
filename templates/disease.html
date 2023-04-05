@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Disease Detection</title>
+    <script src="https://kit.fontawesome.com/e1c0f54580.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            position: sticky;
+            top: 0px;
+        }
+
+        /* .navbar::before {
+            content: "";
+            background-color: rgb(0, 0, 0);
+
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        } */
+
+        .navbar img {
+            width: 90px;
+            height: 60px;
+            border-radius: 29px;
+            position: relative;
+            cursor: context-menu;
+        }
+
+        .logo {
+            margin: 10px 20px;
+        }
+
+        h4{
+            text-shadow:0px 25px 40px rgba(0, 0, 0, 0.8 );
+            background: -webkit-linear-gradient(rgb(5, 248, 212),rgb(3,12,242));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .header li {
+            list-style: none;
+            font-size: 1.5rem;
+        }
+
+        .header li a {
+            color: rgb(244, 238, 238);
+            display: block;
+            padding-left: 30px;
+            padding-right: 30px;
+            border-radius: 15px;
+            text-decoration: none;
+        }
+
+        .active,.header li a:hover {
+            color: rgb(125, 129, 125);
+            background-color: rgb(6, 6, 6);
+        }
+
+
+        #dropdown {
+            display: none;
+        }
+
+        #dropdown li a {
+
+            font-size: 18px;
+
+            margin: 5px;
+            background-color: rgb(129, 134, 129);
+
+        }
+
+        .navbar li:hover #dropdown {
+            display: block;
+            position: absolute;
+        }
+
+        .navbar li:hover #dropdown ul {
+            display: block;
+            margin: 5px;
+        }
+
+        /* Section */
+
+        section::before {
+            content: "";
+            background-image: url("https://images.unsplash.com/photo-1528839390497-a161db4bac71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        span {
+            color: #E53935;
+            font-size: 28px;
+        
+        }
+
+
+        
+        .box{
+            /* position: relative; */
+            margin-top: 55px;
+        }
+        h2{
+            margin: 10px 5px;
+            padding: 5px 3px;
+            color: #FAFAFA;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: whitesmoke;
+            
+        }
+        form img{
+            margin: 20px;
+            padding: 5px;
+            border-radius: 3px;
+            box-shadow: 0px 25px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        form input {
+            margin: 22px;
+            padding: 5px;
+        }
+        .upload_label{
+            color: whitesmoke;
+            font-size: larger;
+        }
+        .btn{
+            display: inline-block;
+            border-radius: 10px;
+            margin: -1px 3px;
+            padding: 6px 80px;
+            color: black;
+            background-color: green;
+            cursor: context-menu;
+        }
+        .btn:hover{
+            background-color: rgb(56, 247, 46);
+            transform:scale(1.2)
+        }
+        
+
+        .pred {
+            font-size: 35px;
+            color: #FAFAFA;
+            margin-top: 5px;
+        }
+        
+
+        .footer{
+            display:flex;
+            background-color: black;
+            color: rgb(9, 93, 9);
+            font-size:10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 3.2rem;
+        }
+        h2{
+            margin-left:10px;
+            margin-top:10px;
+        }
+        footer ul{
+            display:flex;
+            align-items: end;
+        }
+        @media screen and (min-width:800px) {
+            footer ul {
+                margin-left:250px
+            }
+        }
+        .icons ul li{
+            align-items: center;
+            color: whitesmoke;
+            justify-content: center;
+            margin-left:30px;
+            display: block;
+            border-radius: 50%;
+            font-size: 18px;
+            bottom: 0;
+            width: 100%;
+            height: 3.5rem;
+        }
+        .icons ul li a{
+            text-decoration: none;
+            color: whitesmoke;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <!-- for logo -->
+
+        <div class="logo">
+            <img src={{url_for('static',filename='Logo.jpg')}} alt="Cannot found">
+            <h4 align="center" id="content">Emerging AI Nerds</h4>
+        </div>
+
+        <!-- for nav bar -->
+
+        <ul class="header">
+            <li class="item"><a href={{url_for('index')}}>Home</a></li>
+            <li class="item"><a href="#">Our Services</a>
+                <ul id="dropdown">
+                    <li><a href={{url_for('disease')}}>Crop Disease Detection</a></li>
+                    <li><a href={{url_for('soil')}}>Crop Recommendation for Soil</a></li>
+                    <li><a href={{url_for('fertilizer')}}>Fertilizer Recommendation</a></li>
+                </ul>
+            </li>
+            <li class="item"><a href="#">Future Inhancements</a>
+                <ul id="dropdown">
+                    <li><a href="#">Crop Health Monitoring</a></li>
+                    <li><a href="#">Rainfall Prediction</a></li>
+                    <li><a href="#">Crop Price Prediction</a></li>
+                    <li><a href="#">Pesticides Recommendation</a></li>
+                </ul>
+            </li>
+            <li class="item"><a href={{url_for('about')}}>About Us</a></li>
+            <li class="item"><a href={{url_for('contact')}}>Contact Us</a></li>
+        </ul>
+    </nav>
+    <section>
+        
+        <div class="box">
+            <h2 id="content" align="center">Crop Disease Detection</h2>
+            <form action="{{url_for('detect')}}" method='post' enctype="multipart/form-data"> 
+                <label for="imageUpload" class="upload_label" >
+                    Choose...
+                </label>
+                
+                <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+                
+                
+                <button class="btn" id="btn" type="submit">Dectect Disease</button>
+                <div class="pred">{{prediction_crop}}</div>
+                <div>
+                    <span > Disclaimer : Currently we are detecting disease in the following plants -[Apple,Blueberry,Cherry,Corn,Grape,Orange,Peach,Pepper,Potato,Raspberry,Soyabean,Squash,Strawberry,Tomato] </span>
+                </div>
+                
+                <img src="data:image/jpeg;base64,{{ filename }}" alt="Upload Image" height="200px" width="250px">
+                
+                
+                
+            </form>
+        </div>
+        
+        
+        
+
+
+    </section>
+
+    <footer>
+        <div class="footer">
+            <h2 align='center'>Copyright &#169; Emerging AI Nerds</h2>
+            <div class="icons"><br>
+                <ul align="center">
+                    <li class="fb"><a href="https://www.facebook.com/dancersanu9/" target="_blank"  i class="fa-brands fa-facebook"></i></a></li>
+                    <li class="insta"><a href="https://www.instagram.com/shanu_0.error/?next=%2F" target="_blank"  i class="fa-brands fa-square-instagram"></i></a></li>
+                    <li class="linkdln"><a href="https://www.linkedin.com/in/yogesh-kumar-patel-a8a217218/" target="_blank"  i class="fa-brands fa-linkedin"></i></a></li>
+                    <li class="yt"><a href="https://www.youtube.com/channel/UCFJx_3QZd0EL6r6FrhI_ZXw"  target="_blank" i class="fa-brands fa-youtube"></i></a></li>
+                    <li class="git"><a href="https://github.com/YogeshKumarPatel873" target="_blank"  i class="fa-brands fa-github"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+</body>
+
+</html>
+
