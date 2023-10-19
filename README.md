@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to the Agriculture Helper web application repository! This Flask-based application is designed to assist farmers and agricultural enthusiasts in the field of agriculture. With a focus on three key features, disease detection using Convolutional Neural Network (CNN) models, fertilizer recommendation, and crop recommendation based on soil compositions, this application aims to empower farmers with technology-driven solutions to improve their crop yields and overall agricultural practices.
+Welcome to the Agriculture Helper web application repository! This Flask-based application is designed to assist farmers and agricultural enthusiasts in the field of agriculture. With a focus on three key features, disease detection using Convolutional Neural Network (CNN) models, fertilizer recommendation, and crop recommendation based on soil compositions, this application aims to empower farmers with technology-driven solutions to improve their crop yields and overall agricultural practices. 
 
 ## Features
 
